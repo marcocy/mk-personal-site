@@ -1,18 +1,11 @@
-# Replace repo with your real GitHub username/repository.
-# Example: repo: mkallis/my-personal-site
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME
+  repo: mkallis/YOUR-REPOSITORY-NAME
   branch: main
-  # For Cloudflare + GitHub authentication, you normally need an OAuth proxy.
-  # After you deploy the proxy, uncomment and set this:
-  # base_url: https://YOUR-DECAP-PROXY.workers.dev
+  base_url: https://YOUR-CMS-AUTH-WORKER.workers.dev
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
-
-site_url: https://example.com
-display_url: https://example.com
 
 collections:
   - name: "blog"
@@ -20,10 +13,11 @@ collections:
     folder: "src/content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Description", name: "description", widget: "text", required: false }
       - { label: "Publish Date", name: "pubDate", widget: "datetime" }
-      - { label: "Author", name: "author", widget: "string", default: "Marcos Kallis" }
-      - { label: "Featured Image", name: "heroImage", widget: "image", required: false }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
