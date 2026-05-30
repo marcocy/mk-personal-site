@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+<BaseLayout title="Blog | Marcos Kallis" description="Articles, notes and experiments by Marcos Kallis.">
+  <section class="prose">
+    <div class="eyebrow">Blog</div>
+    <h1>Notes, articles and useful experiments</h1>
+    <p>Fresh thoughts, small provocations, and practical observations. No 80-page strategy decks hiding in the bushes.</p>
+  </section>
+
+  <section class="section post-list">
+    {posts.map((post) => (
+      <article class="card post-card">
+        <time datetime={post.data.pubDate.toISOString()}>{post.data.pubDate.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</time>
+        <h2><a href={`/blog/${post.slug}/`}>{post.data.title}</a></h2>
+        <p>{post.data.description}</p>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Apps | Marcos Kallis" description="A portfolio of public and protected web apps and prototypes.">
+  <section class="prose">
+    <div class="eyebrow">Apps portfolio</div>
+    <h1>Small tools. Practical fixes. Zero ceremony.</h1>
+    <p>
+      Keep your <strong>public tools</strong> in <code>public/apps/</code> and place only selected internal tools inside
+      <code>public/apps/private/</code>. Your QR tool belongs in the public area.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Public apps</div>
+    <div class="grid">
+      <article class="card mini-card">
+        <h3>QR Generator</h3>
+        <p>Your QR tool should be saved as <code>public/apps/qrcodegen.html</code>.</p>
+        <a class="button" href="/apps/qrcodegen.html">Open QR tool</a>
+      </article>
+      <article class="card mini-card">
+        <h3>Future public app</h3>
+        <p>Use this space for tools you want visitors to access freely.</p>
+      </article>
+      <article class="card mini-card">
+        <h3>Experimental lab</h3>
+        <p>Public prototypes can live here once they are ready for prime time.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Protected apps</div>
+    <div class="grid">
+      <article class="card mini-card">
+        <h3>Private apps area</h3>
+        <p>Place password-protected apps in <code>public/apps/private/</code>.</p>
+        <a class="button secondary" href="/apps/private/">Open private area</a>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
